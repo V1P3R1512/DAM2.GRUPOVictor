@@ -32,6 +32,13 @@ public class Calculadora {
         return a % b; // Corrección: ahora devuelve el residuo de la división
     }
 
+    public static Double raizCuadrada(Integer valor) {
+        if (valor < 0) {
+            throw new ArithmeticException("No se puede calcular la raíz cuadrada de un número negativo.");
+        }
+        return Math.sqrt(valor);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
@@ -51,7 +58,8 @@ public class Calculadora {
             System.out.println("3. Multiplicar");
             System.out.println("4. Dividir");
             System.out.println("5. Módulo");
-            System.out.println("6. Salir");
+            System.out.println("6. Raíz");
+            System.out.println("7. Salir");
             System.out.print("Opción: ");
             int opcion = scanner.nextInt();
 
@@ -83,6 +91,9 @@ public class Calculadora {
                     }
                     break;
                 case 6:
+                    resultado = raizCuadrada(num1);
+                    System.out.println("El resultado de la raíz cuadrada es: " + resultado);
+                case 7:
                     continuar = false;
                     System.out.println("¡Gracias por usar la calculadora! ¡Hasta luego!");
                     break;
