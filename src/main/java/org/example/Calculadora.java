@@ -32,11 +32,19 @@ public class Calculadora {
         return a % b; // Corrección: ahora devuelve el residuo de la división
     }
 
-    public static Double raizCuadrada(Integer valor) {
+    public static Double raizCuadrada(double valor) {
         if (valor < 0) {
             throw new ArithmeticException("No se puede calcular la raíz cuadrada de un número negativo.");
         }
         return Math.sqrt(valor);
+    }
+
+    public static Double potencia(double base, double exponente){
+        double resultado = 1;
+        for (int i = 0; i < exponente; i++) {
+            resultado *= base;
+        }
+        return resultado;
     }
 
     public static void main(String[] args) {
@@ -59,7 +67,8 @@ public class Calculadora {
             System.out.println("4. Dividir");
             System.out.println("5. Módulo");
             System.out.println("6. Raíz");
-            System.out.println("7. Salir");
+            System.out.println("7. Potencia");
+            System.out.println("8. Salir");
             System.out.print("Opción: ");
             int opcion = scanner.nextInt();
 
@@ -94,6 +103,9 @@ public class Calculadora {
                     resultado = raizCuadrada(num1);
                     System.out.println("El resultado de la raíz cuadrada es: " + resultado);
                 case 7:
+                    resultado = potencia(num1, num2);
+                    System.out.println("El resultado de la potencia es: " + resultado);
+                case 8:
                     continuar = false;
                     System.out.println("¡Gracias por usar la calculadora! ¡Hasta luego!");
                     break;
@@ -114,6 +126,3 @@ public class Calculadora {
         scanner.close();
     }
 }
-
-
-
